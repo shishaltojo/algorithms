@@ -16,16 +16,49 @@ class Board {
   private:
     int width;
     int height;
+
+  public:
+    Board(int width, int height) {
+      this -> width = width;
+      this -> height = height;
+    }
+
+    int getWidth() {
+      return width;
+    }
+
+    int getHeight() {
+      return height;
+    }
 };
 
 class Point {
   private:
     float x;
     float y;
+
+  public:
+    Point(Board board, float x, float y) {
+      if (x > board.getWidth() || y > board.getHeight()) {
+        throw 1;
+      }
+
+      this -> x = x;
+      this -> y = y;
+    }
+
+    int getX() {
+      return x;
+    }
+
+    int getY() {
+      return y;
+    }
 };
 
 int main() {
-  printf("yolo\n");
+  Board board(10, 20);
+  Point point_1(board, 10, 20);
 
   return 0;
 }
